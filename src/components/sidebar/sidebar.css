@@ -1,0 +1,52 @@
+.sidebar-closed {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-left: 3px solid grey;
+  border-right: 3px solid grey;
+  transition: 0.5s;
+  width: 0;
+}
+
+.sidebar-open {
+  z-index: 1;
+  position: fixed;
+  background-color: grey;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-left: 2px solid black;
+  transition: 0.5s;
+  width: 200px;
+}
+
+.open-button {
+  position: absolute;
+  left: 0;
+  margin-top: 5em;
+  margin-left: -16px;
+  color: white;
+  background-color: grey;
+  border: 1px solid rgb(87, 87, 87);
+  border-radius: 50%;
+}
+
+.open-button:hover {
+  background: rgb(187, 187, 187);
+}
+
+.online-users-heading {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #101010;
+}
+
+.sidebar-content-visible {
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-content-hidden {
+  display: none;
+}

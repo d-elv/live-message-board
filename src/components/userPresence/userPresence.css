@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  width: 200px;
+  justify-content: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.presence-odd {
+  background-color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.presence-even {
+  background-color: black;
+}
+
+.users-list {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.present-user {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.user-photo {
+  width: 26px;
+  height: 26px;
+}
+
+.glowing-circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #00e608;
+  box-shadow: 0 0 5px #00e608, 0 0 10px #00e608;
+}
