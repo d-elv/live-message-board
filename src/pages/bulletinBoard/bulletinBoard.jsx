@@ -4,7 +4,8 @@ import { useEffect, useState, useRef, createRef } from "react";
 import "./bulletinBoard.css";
 import { Navbar } from "../../components/navbar/navbar.jsx";
 import { Sidebar } from "../../components/sidebar/sidebar.jsx";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useGetUserInfo } from "../../hooks/useGetUserInfo.js";
 
 const getDayWithOrdinalSuffix = (day) => {
   const suffixes = ["th", "st", "nd", "rd"];
@@ -51,6 +52,8 @@ const formatDate = (firebaseTimestamp) => {
 };
 
 export const BulletinBoard = () => {
+  const { isAuth } = useGetUserInfo();
+  const navigate = useNavigate();
   const [bulletin, setBulletin] = useState("");
   const [navbarOn, setnavbarOn] = useState(false);
   const [visibleDates, setVisibleDates] = useState({});
@@ -61,6 +64,13 @@ export const BulletinBoard = () => {
   const location = useLocation();
   const { bulletins } = useGetBulletins();
   const { addBulletin } = useAddBulletin();
+
+  useEffect(() => {
+    // Checks user is logged in
+    if (!isAuth) {
+      navigate("/login");
+    }
+  }, []);
 
   const onSubmit = async (event) => {
     if (!bulletin) {
