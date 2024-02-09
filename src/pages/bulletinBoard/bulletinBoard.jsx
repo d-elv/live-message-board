@@ -180,6 +180,7 @@ export const BulletinBoard = () => {
 };
 
 // TODO:
+// Make it so that a user trying to sign in when their presence is already registered is accounted for
 // 2) Prevent spam, only so many messages after so long... 5 messages within 5 seconds?
 // 3) If multiple messages are sent by one person, bundle them together. Have name show at the top of the first of the batch.
 // 4) Add formatting of messages. Markdown from freeCodeCamp lesson?
