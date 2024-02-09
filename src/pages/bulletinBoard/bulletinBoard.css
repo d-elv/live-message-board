@@ -22,28 +22,26 @@
   text-align: left;
   cursor: default;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 2px;
   margin-left: 1em;
   margin-right: 1em;
 }
 
+.last-bulletin {
+  margin-bottom: 12px;
+}
+
 .bulletin-sender {
-  font-size: 0.7rem;
-  margin-top: 0;
-  margin-bottom: 2px;
-  margin-left: 6px;
+  text-align: left;
+  font-size: 0.8rem;
+  margin-top: 0.8em;
+  margin-bottom: 6px;
+  margin-left: 26px;
 }
 
 .list-item-bulletin {
-  margin-bottom: 0.4em;
-}
-
-.list-item-bulletin:nth-child(1) {
-  margin-top: 0.5em;
-}
-
-.list-item-bulletin:last-of-type {
-  margin-bottom: 0.6em;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .content-and-date-container {
@@ -53,7 +51,10 @@
 
 .bulletin-content {
   background-color: #88f2e8;
-  border-radius: 5px 5px 5px 0px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 5px;
   display: inline-block;
   padding-top: 3px;
   padding-right: 6px;
@@ -65,13 +66,27 @@
   max-width: 100%;
   transition: background-color 0.5s ease-in-out, max-width 0.5s ease-in-out;
 }
+
 .bulletin-content:hover {
   background-color: #7ce0d6;
 }
 
-.bulletin-content.shrink {
-  max-width: calc(100% - 80px);
-  transition: max-width 0.5s ease-in-out;
+.same-sender {
+  border-radius: 0;
+}
+
+.start-of-batch {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 5px;
+}
+
+.end-of-batch {
+  border-top-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .date-of-bulletin {

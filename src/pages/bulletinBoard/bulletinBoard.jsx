@@ -130,29 +130,50 @@ export const BulletinBoard = () => {
                 bulletinRefs.current[index] = createRef();
               }
 
+              const isLastBulletin = index === bulletins.length - 1;
+
+              const didNameChange =
+                index === 0 || bulletins[index - 1].name !== name;
+
+              const nameWillChange =
+                (index < bulletins.length - 1 &&
+                  bulletins[index + 1].name !== name) ||
+                index === bulletins.length - 1;
+
               return (
-                <li key={id} className="list-item-bulletin">
-                  <div className="bulletin">
-                    <p className="bulletin-sender">{name}</p>
-                    <div className="content-and-date-container">
-                      <p
-                        className={"bulletin-content"}
-                        onMouseOver={() => toggleDateVisibility(id)}
-                        onMouseLeave={() => toggleDateVisibility(id)}
-                      >
-                        {bulletin}
-                      </p>
-                      <p
-                        ref={bulletinRefs.current[index]}
-                        className={`date-of-bulletin ${
-                          isDateVisible ? "visible" : ""
-                        }`}
-                      >
-                        {isDateVisible ? `sent ${formattedDate}` : ""}
-                      </p>
+                <div key={id}>
+                  {didNameChange && (
+                    <div className="bulletin-sender">{name}</div>
+                  )}
+                  <li key={id} className="list-item-bulletin">
+                    <div
+                      className={
+                        isLastBulletin ? "bulletin last-bulletin" : "bulletin"
+                      }
+                    >
+                      <div className="content-and-date-container">
+                        <p
+                          className={`bulletin-content ${
+                            nameWillChange ? "end-of-batch" : ""
+                          } ${didNameChange ? "start-of-batch" : ""}
+                          }`}
+                          onMouseOver={() => toggleDateVisibility(id)}
+                          onMouseLeave={() => toggleDateVisibility(id)}
+                        >
+                          {bulletin}
+                        </p>
+                        <p
+                          ref={bulletinRefs.current[index]}
+                          className={`date-of-bulletin ${
+                            isDateVisible ? "visible" : ""
+                          }`}
+                        >
+                          {isDateVisible ? `sent ${formattedDate}` : ""}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
+                </div>
               );
             })}
           </ul>
